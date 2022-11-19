@@ -2,10 +2,27 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    
+    <h1><%=title%></h1>
+    <p>Welcome to Local Library app</p>
+    <h2>Dynamic Content</h2>
+    
+    <% if (error) { %>
+      <p>Error getting dynamic content</p>
+      <% } else { %>
+        <p>the library has the following record counts:</p> 
+        <ul>
+          <li>Books:<%- data.book_count %></li>
+          <li>Copies:<%- data.book_instance_count %></li>
+          <li>Copies Available:<%- data.book_instance_available_count %></li>
+          <li>Authors:<%- data.author_count %></li>
+          <li>Genres:<%- data.genre_count %></li>
+        </ul>
+
+        <% } %>
+
   </body>
 </html>
