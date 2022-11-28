@@ -3,7 +3,7 @@
 <p>Author:<a href=<%- book.author.url%>> <%- book.author.name%> </a></p>
 <p>Summary: <%=book.summary%></p>
 <p>ISBN: <%=book.isbn%></p>
-<p>Genre: <% console.log(book.genre[0].name) %>
+<p>Genre: %>
     <% book.genre.forEach((val) => { %>
          <a href=<%- val.url %> ><%- val.name %></a>
     <% })%>
