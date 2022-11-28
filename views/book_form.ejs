@@ -1,0 +1,43 @@
+<a href="/catalog">Home</a>
+<h1><%=title%></h1> 
+
+  <form method='POST' action=''>
+    <div>
+      <label for='title'>Title:
+        <input type='text' placeholder='Name of book' name='title' required='true'>
+      </label>
+    </div>  
+    <div>
+      <label for='author'>Author:
+      <select type='select' placeholder='Select author' name='author' required='true'>
+        <%- authors.sort(function(a, b) {let textA = a.family_name.toUpperCase(); let textB = b.family_name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});%>
+        <% authors.forEach((author)=> { %>
+                    <option value=<%- author._id %> > <%- author.name %></option>
+                    <%   }) %>
+        </select>    
+      </label>
+    </div>
+    <div>
+        <label for="summary">Summary:
+            <textarea name="summary" type="textarea" placeholder="Summary" required='true 'cols="30" rows="10"></textarea>
+        </label>
+    </div>
+    <div>
+        <label for="isbn">ISBN:
+            <input type="text" placeholder="ISBN13" name="isbn" required="true">
+        </label>
+    </div>
+    <div>
+        <label>Genre:
+            <div>
+                <% genres.forEach((genre)=> { %>
+                    <div>
+                        <input type="checkbox" name="genre" id=<%-genre._id%> value=<%-genre._id%> >
+                        <label for=<%- genre._id %> > <%- genre.name %> </label>
+                    </div>
+                <% }) %>
+            </div>
+        </label>
+    </div>
+    <button type="submit">Submit</button>
+</form>
